@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  server:
+    build: .
+    ports:
+      - "80:80"
+    restart: on-failure
+    # Establecer cualquier otra configuración necesaria para el servidor
+
+  client:
+    build: ./client
+    depends_on:
+      - server
+    environment:
+      SERVER_URL: "http://server:80"  # Utiliza el nombre del servicio en lugar de localhost
+    ports:
+      - "8080:8080"
+    restart: on-failure
+    # Establecer cualquier otra configuración necesaria para el cliente
