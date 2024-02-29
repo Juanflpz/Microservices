@@ -15,3 +15,6 @@ EXPOSE 80
 
 # Comando para ejecutar el servidor
 CMD ["./server"]
+
+#docker build -t go-server .
+#docker run --name go-server -p 80:80 go-server
